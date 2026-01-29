@@ -20,6 +20,12 @@ export default defineConfig(({ mode }) => ({
     host: true,
     port: 7845,
     strictPort: true,
+    allowedHosts: [
+      "localhost",
+      "127.0.0.1",
+      "::1",
+      "ts-whisper.purecore.codes"
+    ]
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
