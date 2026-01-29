@@ -1,6 +1,8 @@
 import { Info, Wrench, CheckCircle } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const Notes = () => {
+  const { t } = useI18n();
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20" />
@@ -8,7 +10,7 @@ const Notes = () => {
       <div className="container relative z-10 px-4">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-primary text-glow">Notas</span>
+            <span className="text-primary text-glow">{t("notes.title")}</span>
           </h2>
         </div>
 
@@ -20,7 +22,7 @@ const Notes = () => {
             <div>
               <p className="text-foreground">
                 <code className="text-primary font-mono bg-primary/10 px-2 py-0.5 rounded">ts-whisper</code>{" "}
-                <span className="text-muted-foreground font-semibold">não reimplementa</span> o Whisper; ele só orquestra o{" "}
+                {t("notes.n1").replace("ts-whisper", "").replace("whisper.cpp", "")}
                 <code className="text-primary font-mono bg-primary/10 px-2 py-0.5 rounded">whisper.cpp</code>.
               </p>
             </div>
@@ -32,11 +34,13 @@ const Notes = () => {
             </div>
             <div>
               <p className="text-foreground">
-                Helpers internos como{" "}
+                {t("notes.n2")
+                  .replace("checkWhisperBinary()", "")}
                 <code className="text-primary font-mono bg-primary/10 px-2 py-0.5 rounded text-sm">checkWhisperBinary()</code>{" "}
-                e{" "}
-                <code className="text-primary font-mono bg-primary/10 px-2 py-0.5 rounded text-sm">checkModel()</code>{" "}
-                validam se binário/modelo existem e retornam o caminho resolvido.
+                {""}
+                <span className="text-muted-foreground">e</span>{" "}
+                <code className="text-primary font-mono bg-primary/10 px-2 py-0.5 rounded text-sm">checkModel()</code>
+                {"."}
               </p>
             </div>
           </div>
@@ -47,8 +51,7 @@ const Notes = () => {
             </div>
             <div>
               <p className="text-foreground">
-                Custo zero de API,  roda 100% no seu hardware com{" "}
-                <span className="text-primary font-semibold">CPU/GPU local</span>.
+                {t("notes.n3")}
               </p>
             </div>
           </div>

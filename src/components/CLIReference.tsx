@@ -1,52 +1,54 @@
 import { FileText, Cog, Globe, Cpu, Languages, Terminal, HelpCircle } from "lucide-react";
 import CodeBlock from "./CodeBlock";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const options = [
   {
     flag: "--file <path>",
-    description: "Salvar a transcrição em arquivo",
+    descriptionKey: "cli.options.file",
     icon: FileText,
     example: `npx ts-whisper "audio.wav" --file "transcript.txt"`,
   },
   {
     flag: "--model <path>",
-    description: "Escolher modelo",
+    descriptionKey: "cli.options.model",
     icon: Cog,
     example: `npx ts-whisper "audio.wav" --model "models/ggml-small.bin"`,
   },
   {
     flag: "--language <code>",
-    description: "Forçar idioma (ex: Japanese, Portuguese, pt, en)",
+    descriptionKey: "cli.options.language",
     icon: Globe,
     example: `npx ts-whisper "japanese.wav" --language Japanese`,
   },
   {
     flag: "--threads <number>",
-    description: "Threads de CPU para performance",
+    descriptionKey: "cli.options.threads",
     icon: Cpu,
     example: `npx ts-whisper "audio.wav" --threads 8`,
   },
   {
     flag: "--translate",
-    description: "Traduz para inglês",
+    descriptionKey: "cli.options.translate",
     icon: Languages,
     example: `npx ts-whisper "audio.wav" --translate`,
   },
   {
     flag: "--binary <path>",
-    description: "Caminho do binário whisper.cpp",
+    descriptionKey: "cli.options.binary",
     icon: Terminal,
     example: `npx ts-whisper "audio.wav" --binary "C:\\path\\to\\whisper.exe"`,
   },
   {
     flag: "--help / -h",
-    description: "Mostra ajuda do CLI",
+    descriptionKey: "cli.options.help",
     icon: HelpCircle,
     example: `npx ts-whisper --help`,
   },
 ];
 
-const CLIReference = () => {
+export const CLIReference = () => {
+  const { t } = useI18n();
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30" />
@@ -55,10 +57,10 @@ const CLIReference = () => {
       <div className="container relative z-10 px-4">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-primary text-glow">CLI</span> Reference
+            <span className="text-primary text-glow">{t("cli.title")}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Todas as opções disponíveis via linha de comando
+            {t("cli.subtitle")}
           </p>
         </div>
 
@@ -66,7 +68,7 @@ const CLIReference = () => {
         <div className="max-w-3xl mx-auto mb-12">
           <CodeBlock
             code="ts-whisper <audio> [options]"
-            filename="Sintaxe"
+            filename={t("cli.syntax")}
           />
         </div>
 
@@ -80,7 +82,7 @@ const CLIReference = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <code className="text-primary font-mono text-sm font-semibold">{option.flag}</code>
-                  <p className="text-muted-foreground text-sm mt-1 mb-3">{option.description}</p>
+                  <p className="text-muted-foreground text-sm mt-1 mb-3">{t(option.descriptionKey)}</p>
                   <div className="terminal text-xs">
                     <div className="p-3 overflow-x-auto">
                       <code className="text-foreground/80 whitespace-nowrap">{option.example}</code>
@@ -94,26 +96,21 @@ const CLIReference = () => {
 
         {/* Common Combinations */}
         <div className="mt-16 max-w-4xl mx-auto">
-          
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-center">
-            <span className="text-primary text-glow">Configurações</span>
-          </h2>
+          <h3 className="font-display text-2xl text-foreground mb-8 text-center">
+            {t("cli.combos")}
+          </h3>
           <div className="space-y-6">
             <div>
               <p className="text-muted-foreground mb-3 text-sm">
-                Transcrever PT-BR, usando 8 threads, salvando em arquivo:
+                {t("cli.combos1")}
               </p>
-              <CodeBlock
-                code={`npx ts-whisper "audio.wav" --language pt --threads 8 --file "audio.txt"`}
-              />
+              <CodeBlock code={`npx ts-whisper "audio.wav" --language pt --threads 8 --file "audio.txt"`} />
             </div>
             <div>
               <p className="text-muted-foreground mb-3 text-sm">
-                Forçar um modelo específico e traduzir para inglês:
+                {t("cli.combos2")}
               </p>
-              <CodeBlock
-                code={`npx ts-whisper "audio.wav" --model "models/ggml-small.bin" --translate`}
-              />
+              <CodeBlock code={`npx ts-whisper "audio.wav" --model "models/ggml-small.bin" --translate`} />
             </div>
           </div>
         </div>
@@ -125,3 +122,4 @@ const CLIReference = () => {
 };
 
 export default CLIReference;
+

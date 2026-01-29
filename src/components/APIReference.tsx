@@ -1,4 +1,5 @@
 import CodeBlock from "./CodeBlock";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const apiOptions = [
   { name: "file", type: "string", required: true, description: "Caminho do áudio" },
@@ -10,6 +11,7 @@ const apiOptions = [
 ];
 
 const APIReference = () => {
+  const { t } = useI18n();
   const exampleCode = `import { transcribe } from "ts-whisper";
 
 const result = await transcribe({
@@ -31,10 +33,10 @@ console.log(result.segments); // [{ start, end, text }, ...]`;
       <div className="container relative z-10 px-4">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-primary text-glow">API</span> (Node.js)
+            <span className="text-primary text-glow">{t("api.title")}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Use programaticamente em seus projetos TypeScript/JavaScript
+            {t("api.subtitle")}
           </p>
         </div>
 
@@ -45,20 +47,20 @@ console.log(result.segments); // [{ start, end, text }, ...]`;
           </div>
 
           {/* Options Table */}
-          <div className="card-neon card-glow-hover overflow-hidden pb-4">
+          <div className="card-neon card-glow-hover overflow-hidden">
             <div className="p-6 border-b border-primary/20">
               <h3 className="font-display text-xl text-foreground">
-                Opções do <code className="text-primary font-mono">transcribe()</code>
+                {t("api.optionsTitle")}
               </h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-primary/10">
-                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">Opção</th>
-                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">Tipo</th>
-                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">Obrigatório</th>
-                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">Descrição</th>
+                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">{t("api.table.option")}</th>
+                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">{t("api.table.type")}</th>
+                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">{t("api.table.required")}</th>
+                    <th className="text-left p-4 font-display text-sm text-muted-foreground font-medium">{t("api.table.description")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -78,13 +80,13 @@ console.log(result.segments); // [{ start, end, text }, ...]`;
                       <td className="p-4">
                         {option.required ? (
                           <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/20 text-primary border border-primary/30">
-                            Sim
+                            {t("api.table.yes")}
                           </span>
                         ) : (
-                          <span className="text-muted-foreground text-sm">Não</span>
+                          <span className="text-muted-foreground text-sm">{t("api.table.no")}</span>
                         )}
                       </td>
-                      <td className="p-4 text-sm text-muted-foreground">{option.description}</td>
+                      <td className="p-4 text-sm text-muted-foreground">{t(`api.optionDescriptions.${option.name}`)}</td>
                     </tr>
                   ))}
                 </tbody>

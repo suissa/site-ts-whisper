@@ -1,7 +1,9 @@
 import { HardDrive, FileAudio, Globe } from "lucide-react";
 import CodeBlock from "./CodeBlock";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const Requirements = () => {
+  const { t } = useI18n();
   return (
     <section className="relative py-24 overflow-hidden max-w-4xl mx-auto">
       <div className="absolute inset-0 grid-pattern opacity-50" />
@@ -9,7 +11,7 @@ const Requirements = () => {
       <div className="container relative z-10 px-4">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-primary text-glow">Configurações</span>
+            <span className="text-primary text-glow">{t("requirements.title")}</span>
           </h2>
         </div>
 
@@ -22,11 +24,11 @@ const Requirements = () => {
               <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
                 <FileAudio className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-display text-xl text-foreground">Modelo .bin</h3>
+              <h3 className="font-display text-xl text-foreground">{t("requirements.modelTitle")}</h3>
             </div>
             <p className="text-muted-foreground text-sm mb-4">
-              Em <code className="text-primary font-mono text-xs bg-primary/10 px-1.5 py-0.5 rounded">models/ggml-base.bin</code> (padrão) ou outro caminho via{" "}
-              <code className="text-primary font-mono text-xs bg-primary/10 px-1.5 py-0.5 rounded">--model</code>
+              {t("requirements.modelDesc").replace("models/ggml-base.bin", "")}
+              <code className="text-primary font-mono text-xs bg-primary/10 px-1.5 py-0.5 rounded">models/ggml-base.bin</code>
             </p>
           </div>
 
@@ -36,10 +38,10 @@ const Requirements = () => {
               <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
                 <Globe className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-display text-xl text-foreground">Multi-idiomas</h3>
+              <h3 className="font-display text-xl text-foreground">{t("requirements.languagesTitle")}</h3>
             </div>
             <p className="text-muted-foreground text-sm mb-4">
-              Suporte via whisper.cpp: <code className="text-primary font-mono text-xs">Japanese</code>, <code className="text-primary font-mono text-xs">Portuguese</code>, <code className="text-primary font-mono text-xs">en</code>, <code className="text-primary font-mono text-xs">pt</code>...
+              {t("requirements.languagesDesc")}
             </p>
           </div>
         </div>
@@ -48,10 +50,10 @@ const Requirements = () => {
         <div className="mt-16 pb-16 max-w-4xl mx-auto">
           <div className="card-neon card-glow-hover p-8">
             <h3 className="font-display text-xl text-foreground mb-4 text-center">
-              Formatos de Áudio Suportados
+              {t("requirements.audioFormatsTitle")}
             </h3>
             <p className="text-muted-foreground text-center mb-6">
-              Os formatos dependem do seu build do whisper.cpp (e se tem suporte a ffmpeg)
+              {t("requirements.audioFormatsDesc")}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               {[".wav", ".mp3", ".flac", ".m4a", ".mp4", ".ogg", ".opus", ".webm"].map((format) => (
@@ -63,34 +65,32 @@ const Requirements = () => {
                 </span>
               ))}
             </div>
-            <p className="text-muted-foreground text-sm text-center mt-6">
-              Se algum formato falhar, converta para WAV/FLAC antes
-            </p>
+            <p className="text-muted-foreground text-sm text-center mt-6">{t("requirements.audioFormatsNote")}</p>
           </div>
         </div>
 
         {/* Quick Start */}
         <div className="mt-16 max-w-3xl mx-auto">
           <h2 className="font-display text-center text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-primary text-glow">Rodando Local (rápido)</span>
+            <span className="text-primary text-glow">{t("requirements.quickTitle")}</span>
           </h2>
           <p className="text-muted-foreground text-center mb-6">
-            Instale as dependências, compile e execute
+            {t("requirements.quickSub")}
           </p>
           <div className="space-y-4">
             <CodeBlock
             className="card-neon card-glow-hover"
               code={`npm i
 npm run build`}
-              filename="Instalar dependências"
+              filename={t("requirements.quickSub")}
             />
             <p className="text-muted-foreground text-center mb-6">
-              Execute a transcrição sem instalar nada
+              {t("requirements.quickNote")}
             </p>
             <CodeBlock
               className="card-neon card-glow-hover"
               code={`npx ts-whisper "audio.wav"`}
-              filename="Transcrever áudio"
+              filename={t("requirements.quickNote")}
             />
           </div>
         </div>

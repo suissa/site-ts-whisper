@@ -1,6 +1,8 @@
 import { Terminal, Zap, Cpu } from "lucide-react";
+import { useI18n } from "@/i18n/I18nProvider";
 
 const Hero = () => {
+  const { t } = useI18n();
   return (
     <section className="relative min-h-screen max-w-6xl mx-auto flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
@@ -43,16 +45,14 @@ const Hero = () => {
             className="text-2xl md:text-6xl tilt-neon text-shadow text-primary/80 mb-4 text-glow-sm"
             style={{ textShadow: "0px 0px 20px #00ffe7" }}
           >
-            
-            PARE DE GASTAR COM TRANSCRICOES!
+            {t("hero.tagline")}
           </p>
 
           {/* Description */}
-          <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            Biblioteca/CLI em TypeScript que "embrulha" o{" "}
-            <code className="text-primary font-mono bg-primary/10 px-2 py-0.5 rounded">whisper.cpp</code>{" "}
-            para você transcrever áudio <span className="text-primary">localmente</span>, sem API paga.
-          </p>
+          {/* <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed">
+            {t("hero.description").replace("whisper.cpp", "")}
+            <code className="text-primary font-mono bg-primary/10 px-2 py-0.5 rounded">whisper.cpp</code>.
+          </p> */}
 
           {/* Quick Start Terminal */}
           <div className="w-full max-w-2xl terminal mb-12">
@@ -83,26 +83,24 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
             <div className="card-neon card-glow-hover p-6 group">
               <Zap className="w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
-              <h3 className="font-display text-lg text-foreground mb-2">Zero API Costs</h3>
-              <p className="text-sm text-muted-foreground">Roda 100% local, só CPU/GPU</p>
+              <h3 className="font-display text-lg text-foreground mb-2">{t("hero.features.zeroApi.title")}</h3>
+              <p className="text-sm text-muted-foreground">{t("hero.features.zeroApi.desc")}</p>
             </div>
             <div className="card-neon card-glow-hover p-6 group">
               <Terminal className="w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
-              <h3 className="font-display text-lg text-foreground mb-2">CLI & API</h3>
-              <p className="text-sm text-muted-foreground">Use no terminal ou via código</p>
+              <h3 className="font-display text-lg text-foreground mb-2">{t("hero.features.cliApi.title")}</h3>
+              <p className="text-sm text-muted-foreground">{t("hero.features.cliApi.desc")}</p>
             </div>
             <div className="card-neon card-glow-hover p-6 group">
               <Cpu className="w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
-              <h3 className="font-display text-lg text-foreground mb-2">whisper.cpp</h3>
-              <p className="text-sm text-muted-foreground">Powered by whisper.cpp</p>
+              <h3 className="font-display text-lg text-foreground mb-2">{t("hero.features.whisper.title")}</h3>
+              <p className="text-sm text-muted-foreground">{t("hero.features.whisper.desc")}</p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-    </section>
+</section>
   );
 };
 
