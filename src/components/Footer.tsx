@@ -9,27 +9,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-              <Terminal className="w-5 h-5 text-primary" />
-            </div>
-            <span className="font-display text-3xl">
-              <span className="text-foreground">ts-</span>
-              <span className="text-primary">whisper</span>
-            </span>
+            <img className="max-w-[200px]" src="/logo-footer.png" />
           </div>
 
-          {/* Links */}
-          <div className="flex items-center gap-6">
-            <a
-              href="https://github.com/suissa/ts-whisper"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Github className="w-12 h-12" />
-              <span className="text-2xl">GitHub</span>
-            </a>
-          </div>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
@@ -40,6 +22,18 @@ const Footer = () => {
             />
             
           </p>
+          {/* Links */}
+          <div className="flex items-center gap-6">
+            <a
+              href="https://github.com/suissa/ts-whisper"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-primary hover:text-[#ccc] transition-colors"
+            >
+              <Github className="w-12 h-12" />
+              <span className="text-2xl font-nixmat font-thin">GitHub</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

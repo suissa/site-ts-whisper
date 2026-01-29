@@ -32,12 +32,12 @@ const Hero = () => {
   "
 /> */}
 
-      <div className="container relative z-10 px-4 py-20">
+      <div className="container relative z-10 px-4 py:8 md:py-20">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
          
 
           {/* Title */}
-          <img src="/logo-glow.png" alt="ts-whisper logo" className="w-full md:max-w-[800px] mb-4
+          <img src="/logo-glow.png" alt="ts-whisper logo" className="w-full md:max-w-[800px] mb-0 md:mb-4
           " />
 
           {/* Tagline */}
@@ -55,7 +55,7 @@ const Hero = () => {
           </p> */}
 
           {/* Quick Start Terminal */}
-          <div className="w-full max-w-2xl terminal mb-12">
+          <div className="w-full max-w-2xl terminal mb-4 mt-4 md:mb-12">
             <div className="terminal-header">
               <div className="terminal-dot bg-red-500" />
               <div className="terminal-dot bg-yellow-500" />
@@ -81,18 +81,18 @@ const Hero = () => {
 
           {/* Stats/Features Quick View */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-3xl">
-            <div className="card-neon card-glow-hover p-6 group">
-              <Zap className="w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
+            <div className="relative card-neon card-glow-hover p-6 group">
+              <Zap className="absolute md:relative w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
               <h3 className="font-display text-lg text-foreground mb-2">{t("hero.features.zeroApi.title")}</h3>
               <p className="text-sm text-muted-foreground">{t("hero.features.zeroApi.desc")}</p>
             </div>
-            <div className="card-neon card-glow-hover p-6 group">
-              <Terminal className="w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
+            <div className="relative card-neon card-glow-hover p-6 group">
+              <Terminal className="absolute md:relative w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
               <h3 className="font-display text-lg text-foreground mb-2">{t("hero.features.cliApi.title")}</h3>
               <p className="text-sm text-muted-foreground">{t("hero.features.cliApi.desc")}</p>
             </div>
-            <div className="card-neon card-glow-hover p-6 group">
-              <Cpu className="w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
+            <div className="relative card-neon card-glow-hover p-6 group">
+              <Cpu className="absolute md:relative w-8 h-8 text-primary mb-3 group-hover:text-glow transition-all" />
               <h3 className="font-display text-lg text-foreground mb-2">{t("hero.features.whisper.title")}</h3>
               <p className="text-sm text-muted-foreground">{t("hero.features.whisper.desc")}</p>
             </div>
