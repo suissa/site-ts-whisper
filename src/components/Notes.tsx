@@ -13,7 +13,7 @@ const Notes = () => {
         </div>
 
         <div className="max-w-3xl mx-auto space-y-6">
-          <div className="card-neon p-6 flex items-start gap-4">
+          <div className="card-neon card-glow-hover p-6 flex items-start gap-4">
             <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 shrink-0">
               <Info className="w-5 h-5 text-primary" />
             </div>
@@ -26,7 +26,7 @@ const Notes = () => {
             </div>
           </div>
 
-          <div className="card-neon p-6 flex items-start gap-4">
+          <div className="card-neon card-glow-hover p-6 flex items-start gap-4">
             <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 shrink-0">
               <Wrench className="w-5 h-5 text-primary" />
             </div>
@@ -41,13 +41,13 @@ const Notes = () => {
             </div>
           </div>
 
-          <div className="card-neon p-6 flex items-start gap-4">
+          <div className="card-neon card-glow-hover p-6 flex items-start gap-4">
             <div className="p-2 rounded-lg bg-green-500/10 border border-green-500/20 shrink-0">
               <CheckCircle className="w-5 h-5 text-green-400" />
             </div>
             <div>
               <p className="text-foreground">
-                Custo zero de API — roda 100% no seu hardware com{" "}
+                Custo zero de API,  roda 100% no seu hardware com{" "}
                 <span className="text-primary font-semibold">CPU/GPU local</span>.
               </p>
             </div>

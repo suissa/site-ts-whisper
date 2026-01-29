@@ -73,7 +73,7 @@ const CLIReference = () => {
         {/* Options Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {options.map((option) => (
-            <div key={option.flag} className="card-neon p-6 group">
+            <div key={option.flag} className="card-neon card-glow-hover p-6 group">
               <div className="flex items-start gap-4">
                 <div className="p-2 rounded-lg bg-primary/10 border border-primary/20 shrink-0">
                   <option.icon className="w-5 h-5 text-primary" />
@@ -94,9 +94,10 @@ const CLIReference = () => {
 
         {/* Common Combinations */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <h3 className="font-display text-2xl text-foreground mb-8 text-center">
-            Combinações <span className="text-primary">Comuns</span>
-          </h3>
+          
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4 text-center">
+            <span className="text-primary text-glow">Configurações</span>
+          </h2>
           <div className="space-y-6">
             <div>
               <p className="text-muted-foreground mb-3 text-sm">

@@ -45,7 +45,7 @@ console.log(result.segments); // [{ start, end, text }, ...]`;
           </div>
 
           {/* Options Table */}
-          <div className="card-neon overflow-hidden">
+          <div className="card-neon card-glow-hover overflow-hidden pb-4">
             <div className="p-6 border-b border-primary/20">
               <h3 className="font-display text-xl text-foreground">
                 Opções do <code className="text-primary font-mono">transcribe()</code>

@@ -69,6 +69,7 @@ export default {
         display: ["Orbitron", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
         sans: ["Inter", "system-ui", "sans-serif"],
+        nixmat: ["Nixmat", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

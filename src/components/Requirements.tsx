@@ -3,36 +3,21 @@ import CodeBlock from "./CodeBlock";
 
 const Requirements = () => {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden max-w-4xl mx-auto">
       <div className="absolute inset-0 grid-pattern opacity-50" />
       
       <div className="container relative z-10 px-4">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-primary text-glow">Requisitos</span>
+            <span className="text-primary text-glow">Configurações</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Configure seu ambiente para rodar transcrições localmente
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Binary */}
-          <div className="card-neon p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
-                <HardDrive className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl text-foreground">Binário whisper.cpp</h3>
-            </div>
-            <p className="text-muted-foreground text-sm mb-4">
-              Compilado em <code className="text-primary font-mono text-xs bg-primary/10 px-1.5 py-0.5 rounded">bin/whisper</code> (Linux/macOS) ou{" "}
-              <code className="text-primary font-mono text-xs bg-primary/10 px-1.5 py-0.5 rounded">bin/whisper.exe</code> (Windows)
-            </p>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          
 
           {/* Model */}
-          <div className="card-neon p-6">
+          <div className="card-neon card-glow-hover p-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
                 <FileAudio className="w-6 h-6 text-primary" />
@@ -46,7 +31,7 @@ const Requirements = () => {
           </div>
 
           {/* Languages */}
-          <div className="card-neon p-6">
+          <div className="card-neon card-glow-hover p-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
                 <Globe className="w-6 h-6 text-primary" />
@@ -60,8 +45,8 @@ const Requirements = () => {
         </div>
 
         {/* Audio Formats */}
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="card-neon p-8">
+        <div className="mt-16 pb-16 max-w-4xl mx-auto">
+          <div className="card-neon card-glow-hover p-8">
             <h3 className="font-display text-xl text-foreground mb-4 text-center">
               Formatos de Áudio Suportados
             </h3>
@@ -86,16 +71,24 @@ const Requirements = () => {
 
         {/* Quick Start */}
         <div className="mt-16 max-w-3xl mx-auto">
-          <h3 className="font-display text-2xl text-foreground mb-6 text-center">
-            Rodando Local <span className="text-primary">(rápido)</span>
-          </h3>
+          <h2 className="font-display text-center text-3xl md:text-4xl font-bold mb-4">
+            <span className="text-primary text-glow">Rodando Local (rápido)</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-6">
+            Instale as dependências, compile e execute
+          </p>
           <div className="space-y-4">
             <CodeBlock
+            className="card-neon card-glow-hover"
               code={`npm i
 npm run build`}
               filename="Instalar dependências"
             />
+            <p className="text-muted-foreground text-center mb-6">
+              Execute a transcrição sem instalar nada
+            </p>
             <CodeBlock
+              className="card-neon card-glow-hover"
               code={`npx ts-whisper "audio.wav"`}
               filename="Transcrever áudio"
             />

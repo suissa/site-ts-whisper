@@ -1,13 +1,15 @@
 import { Copy, Check } from "lucide-react";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface CodeBlockProps {
   code: string;
   language?: string;
   filename?: string;
+  className?: string;
 }
 
-const CodeBlock = ({ code, language = "bash", filename }: CodeBlockProps) => {
+const CodeBlock = ({ code, language = "bash", filename, className }: CodeBlockProps) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -17,7 +19,7 @@ const CodeBlock = ({ code, language = "bash", filename }: CodeBlockProps) => {
   };
 
   return (
-    <div className="terminal group">
+    <div className={cn("terminal group", className)}>
       <div className="terminal-header justify-between">
         <div className="flex items-center gap-2">
           <div className="terminal-dot bg-red-500/80" />

@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
               <Terminal className="w-5 h-5 text-primary" />
             </div>
-            <span className="font-display text-xl">
+            <span className="font-display text-3xl">
               <span className="text-foreground">ts-</span>
               <span className="text-primary">whisper</span>
             </span>
@@ -21,27 +21,24 @@ const Footer = () => {
           {/* Links */}
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/suissa/ts-whisper"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
-              <Github className="w-5 h-5" />
-              <span className="text-sm">GitHub</span>
+              <Github className="w-12 h-12" />
+              <span className="text-2xl">GitHub</span>
             </a>
           </div>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            Powered by{" "}
-            <a
-              href="https://github.com/ggerganov/whisper.cpp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              whisper.cpp
-            </a>
+            <img 
+              src="/purecore.png"
+              alt="purecore"
+              className="w-full max-w-[200px] h-auto inline-block"
+            />
+            
           </p>
         </div>
       </div>
