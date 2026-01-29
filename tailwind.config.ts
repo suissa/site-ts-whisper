@@ -57,6 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom sci-fi colors
+        neon: {
+          cyan: "hsl(180, 100%, 49%)",
+          blue: "hsl(200, 100%, 50%)",
+          dark: "hsl(0, 0%, 8%)",
+          surface: "hsl(0, 0%, 12%)",
+        },
+      },
+      fontFamily: {
+        display: ["Orbitron", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +77,45 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { 
+            boxShadow: "0 0 10px hsl(180 100% 49% / 0.3), 0 0 20px hsl(180 100% 49% / 0.1)" 
           },
-          to: {
-            height: "0",
+          "50%": { 
+            boxShadow: "0 0 20px hsl(180 100% 49% / 0.5), 0 0 40px hsl(180 100% 49% / 0.2)" 
           },
+        },
+        "text-shimmer": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "100% 50%" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "scan": {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(100%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "text-shimmer": "text-shimmer 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "scan": "scan 8s linear infinite",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "grid-pattern": "linear-gradient(hsl(180 100% 49% / 0.03) 1px, transparent 1px), linear-gradient(90deg, hsl(180 100% 49% / 0.03) 1px, transparent 1px)",
       },
     },
   },
