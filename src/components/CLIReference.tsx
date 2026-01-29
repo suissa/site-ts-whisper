@@ -28,12 +28,6 @@ const options = [
     example: `npx ts-whisper "audio.wav" --threads 8`,
   },
   {
-    flag: "--translate",
-    descriptionKey: "cli.options.translate",
-    icon: Languages,
-    example: `npx ts-whisper "audio.wav" --translate`,
-  },
-  {
     flag: "--binary <path>",
     descriptionKey: "cli.options.binary",
     icon: Terminal,
@@ -50,7 +44,7 @@ const options = [
 export const CLIReference = () => {
   const { t } = useI18n();
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative pb-24 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30" />
       <div className="absolute inset-0 bg-gradient-radial from-primary/5 via-transparent to-transparent" />
 
@@ -65,7 +59,7 @@ export const CLIReference = () => {
         </div>
 
         {/* Syntax */}
-        <div className="max-w-3xl mx-auto mb-12">
+        <div className="max-w-lg mx-auto mb-12">
           <CodeBlock
             code="ts-whisper <audio> [options]"
             filename={t("cli.syntax")}
@@ -104,13 +98,19 @@ export const CLIReference = () => {
               <p className="text-muted-foreground mb-3 text-sm">
                 {t("cli.combos1")}
               </p>
-              <CodeBlock code={`npx ts-whisper "audio.wav" --language pt --threads 8 --file "audio.txt"`} />
+              <CodeBlock
+                className="card-neon card-glow-hover"
+                code={`npx ts-whisper "audio.wav" --language pt --threads 8 --file "audio.txt"`}
+              />
             </div>
             <div>
               <p className="text-muted-foreground mb-3 text-sm">
                 {t("cli.combos2")}
               </p>
-              <CodeBlock code={`npx ts-whisper "audio.wav" --model "models/ggml-small.bin" --translate`} />
+              <CodeBlock
+                className="card-neon card-glow-hover"
+                code={`npx ts-whisper "audio.wav" --model "models/ggml-small.bin" --translate`}
+              />
             </div>
           </div>
         </div>

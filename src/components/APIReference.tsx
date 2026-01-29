@@ -27,7 +27,7 @@ console.log(result.text);
 console.log(result.segments); // [{ start, end, text }, ...]`;
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative pb-24 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
       <div className="container relative z-10 px-4">
@@ -43,7 +43,10 @@ console.log(result.segments); // [{ start, end, text }, ...]`;
         <div className="max-w-4xl mx-auto">
           {/* Example */}
           <div className="mb-12">
-            <CodeBlock code={exampleCode} language="typescript" filename="example.ts" />
+            <CodeBlock 
+            
+                className="card-neon card-glow-hover"
+            code={exampleCode} language="typescript" filename="example.ts" />
           </div>
 
           {/* Options Table */}

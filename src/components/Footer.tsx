@@ -2,7 +2,7 @@ import { Github, Terminal } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="relative py-12 border-t border-primary/10">
+    <footer className="max-w-3xl mx-auto relative py-12 border-t border-primary/10">
       <div className="absolute inset-0 grid-pattern opacity-10" />
       
       <div className="container relative z-10 px-4">

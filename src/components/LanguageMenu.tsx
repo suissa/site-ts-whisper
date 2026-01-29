@@ -9,7 +9,32 @@ import {
 
 const LanguageMenu = () => {
   const { lang, setLang } = useI18n();
-  const label = lang === "pt" ? "PT" : "EN";
+  const languages = [
+    { code: "pt", name: "Português" },
+    { code: "en", name: "English" },
+    { code: "es", name: "Español" },
+    { code: "de", name: "Deutsch" },
+    { code: "fr", name: "Français" },
+    { code: "it", name: "Italiano" },
+    { code: "nl", name: "Nederlands" },
+    { code: "pl", name: "Polski" },
+    { code: "ru", name: "Русский" },
+    { code: "ar", name: "العربية" },
+    { code: "zh", name: "中文" },
+    { code: "ja", name: "日本語" },
+    { code: "ko", name: "한국어" },
+    { code: "hi", name: "हिंदी" },
+    { code: "bn", name: "বাংলা" },
+    { code: "vi", name: "Tiếng Việt" },
+    { code: "tr", name: "Türkçe" },
+    { code: "th", name: "ไทย" },
+    { code: "id", name: "Bahasa Indonesia" },
+    { code: "he", name: "עברית" },
+    { code: "fa", name: "فارسی" },
+    { code: "uk", name: "Українська" },
+    { code: "sv", name: "Svenska" },
+  ];
+  const label = lang.toUpperCase();
 
   return (
     <div className="fixed top-4 right-4 z-50">
@@ -18,9 +43,12 @@ const LanguageMenu = () => {
           <Globe className="w-4 h-4 text-primary" />
           <span className="font-mono">{label}</span>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="min-w-[8rem]">
-          <DropdownMenuItem onClick={() => setLang("en")}>English</DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setLang("pt")}>Português</DropdownMenuItem>
+        <DropdownMenuContent align="end" className="min-w-[10rem]">
+          {languages.map((l) => (
+            <DropdownMenuItem key={l.code} onClick={() => setLang(l.code as any)}>
+              {l.name}
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

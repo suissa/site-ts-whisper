@@ -4,7 +4,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 const Notes = () => {
   const { t } = useI18n();
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative pb-24 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-20" />
 
       <div className="container relative z-10 px-4">

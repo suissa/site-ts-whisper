@@ -5,7 +5,7 @@ import { useI18n } from "@/i18n/I18nProvider";
 const Requirements = () => {
   const { t } = useI18n();
   return (
-    <section className="relative py-24 overflow-hidden max-w-4xl mx-auto">
+    <section className="relative pb-24 overflow-hidden max-w-4xl mx-auto">
       <div className="absolute inset-0 grid-pattern opacity-50" />
       
       <div className="container relative z-10 px-4">
